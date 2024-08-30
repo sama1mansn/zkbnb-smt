@@ -30,7 +30,7 @@ var (
 
 // Encode key, format: t:${depth}:${path}
 func storageFullTreeNodeKey(depth uint8, path uint64) []byte {
-	pathBuf := make([]byte, 8)
+	pathBuf := make([]byte,6)
 	binary.BigEndian.PutUint64(pathBuf, path)
 	return bytes.Join([][]byte{storageFullTreeNodePrefix, {depth}, pathBuf}, sep)
 }
